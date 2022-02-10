@@ -1,4 +1,4 @@
 host: "127.0.0.1"
 default-dbname: "test"
-user: "xxxxx"
-password: "xxxx"
+user: "postgres"
+password: "1234"
