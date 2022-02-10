@@ -6,3 +6,5 @@ WHERE schemaname != 'pg_catalog' AND
     schemaname != 'information_schema'
 
 truncate table songs
+
+select * from artists

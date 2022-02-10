@@ -92,10 +92,32 @@ set
 """)
 
 artist_table_insert = ("""
+insert into artists
+(artist_id, name, location, latitude, longitude)
+values 
+(%(artist_id)s, %(name)s, %(location)s, %(latitude)s, %(longitude)s)
+on conflict (artist_id) do update 
+set 
+  name = %(name)s, 
+  location = %(location)s, 
+  latitude = %(latitude)s, 
+  longitude = %(longitude)s
 """)
 
 
 time_table_insert = ("""
+insert into time
+(start_time, hour, day, week, month, year, weekday)
+values 
+(%(start_time)s, %(hour)s, %(day)s, %(week)s, %(month)s, %(year)s, %(weekday)s)
+on conflict (start_time) do update 
+set 
+  hour = %(hour)s, 
+  day = %(day)s, 
+  week = %(week)s, 
+  month = %(month)s, 
+  year = %(year)s, 
+  weekday = %(weekday)s
 """)
 
 # FIND SONGS
