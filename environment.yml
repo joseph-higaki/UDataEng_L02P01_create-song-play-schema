@@ -1,4 +1,7 @@
 name: 
 dependencies:
-- python
+- python=3.8
 - jupyter
+- psycopg2
+- pandas
+- pyyaml
