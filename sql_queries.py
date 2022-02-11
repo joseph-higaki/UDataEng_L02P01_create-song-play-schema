@@ -73,7 +73,23 @@ create table time
 
 songplay_table_insert = ("""
 insert into songplays 
-
+(start_time,
+user_id,
+level,
+song_id,
+artist_id,
+session_id,
+location,
+user_agent)
+values
+(%(start_time)s,
+%(user_id)s,
+%(level)s,
+%(song_id)s,
+%(artist_id)s,
+%(session_id)s,
+%(location)s,
+%(user_agent)s)
 """)
 
 user_table_insert = ("""

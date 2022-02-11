@@ -14,7 +14,7 @@ drop table if exists time;
 
 create table songplays
 (
-    songplay_id int not null primary key,
+    songplay_id serial primary key,
     start_time date,
     user_id int,
     level varchar,

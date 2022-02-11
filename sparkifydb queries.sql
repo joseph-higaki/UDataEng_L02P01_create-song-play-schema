@@ -13,6 +13,8 @@ where s.title = 'You Gotta Be'
 select  * from songs
 where title like '%otta%'
 
+select * from songplays
+where song_id is not null
 SELECT *
 FROM pg_catalog.pg_tables
 WHERE schemaname != 'pg_catalog' AND
