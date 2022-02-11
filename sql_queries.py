@@ -59,23 +59,34 @@ create table artists
 time_table_create = ("""
 create table time
 (
-    start_time date not null primary key,
-    hour int,
-    day int,
-    week int,
-    month int,
-    year int,
-    weekday bool
+  start_time timestamp without time zone not null primary key,
+  hour int,
+  day int,
+  week int,
+  month int,
+  year int,
+  weekday bool
 );
 """)
 
 # INSERT RECORDS
 
 songplay_table_insert = ("""
+insert into songplays 
 
 """)
 
 user_table_insert = ("""
+insert into users
+(user_id, first_name, last_name, gender, level)
+values 
+(%(user_id)s, %(first_name)s, %(last_name)s, %(gender)s, %(level)s)
+on conflict (user_id) do update
+set 
+  first_name = %(first_name)s,
+  last_name = %(last_name)s,
+  gender = %(gender)s, 
+  level = %(level)s
 """)
 
 song_table_insert = ("""
@@ -123,7 +134,13 @@ set
 # FIND SONGS
 
 song_select = ("""
+select s.song_id, s.artist_id
+from songs s
+join artists a on s.artist_id = a.artist_id
+where s.title = %(song_title)s
+and a.name = %(artist_name)s
 """)
+
 
 # QUERY LISTS
 

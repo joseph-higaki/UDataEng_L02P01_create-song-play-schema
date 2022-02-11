@@ -55,7 +55,7 @@ create table artists
 
 create table time
 (
-    start_time date not null primary key,
+    start_time timestamp without time zone not null primary key,
     hour int,
     day int,
     week int,

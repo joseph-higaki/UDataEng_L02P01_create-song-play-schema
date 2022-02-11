@@ -5,3 +5,4 @@ dependencies:
 - psycopg2
 - pandas
 - pyyaml
+- conda-forge::ipython-sql
