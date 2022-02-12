@@ -30,11 +30,7 @@ The ETL uses conda environments with python 3.8. I'm using python 3.8 as I run i
 </details>
 
 ## [create_tables.py](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/f71ba077ace2f3037083f65b6557000b0f5132d0/create_tables.py)
-<details>
-    <summary>
-    Python code to execute DDL statements that initialize the sparkify database
-    </summary>
-</details>
+Python code to execute DDL statements that initialize the sparkify database
 
 ## [db_connection_config.py](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/f71ba077ace2f3037083f65b6557000b0f5132d0/db_connection_config.py)
 <details>
@@ -46,11 +42,7 @@ The ETL uses conda environments with python 3.8. I'm using python 3.8 as I run i
 </details>
 
 ## [db_connection_config.yml](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/f71ba077ace2f3037083f65b6557000b0f5132d0/db_connection_config.yml)
-<details>
-    <summary>        
-    Config file 
-    </summary>
-</details>
+Config file 
 
 ## [ddl.sql](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/f71ba077ace2f3037083f65b6557000b0f5132d0/ddl.sql)
 <details>
@@ -70,8 +62,6 @@ The ETL uses conda environments with python 3.8. I'm using python 3.8 as I run i
     * Needed to use python 3.8  as I couldn't make psycopg2 work with 3.9
     * I used pyyaml, spend too much time troubleshooting why previously I'd been able to use `pip install yaml` and `conda install yaml` doesn't do the trick
     * ipython-sql to be able to execute inline SQL at test.ipynb is not available from conda default channels. I discovered the [channel]::[package] syntax 😊
-
-    ipython-
 </details>
 
 ## [etl.ipynb]()
