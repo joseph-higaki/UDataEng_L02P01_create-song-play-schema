@@ -34,11 +34,11 @@ Python code to execute DDL statements that initialize the sparkify database
 
 ## [db_connection_config.py](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/f71ba077ace2f3037083f65b6557000b0f5132d0/db_connection_config.py)
 <details>
-    <summary>
-    Helper class that provides a PostgreSQL connection string from a config file 
-    </summary>
+<summary>
+Helper class that provides a PostgreSQL connection string from a config file 
+</summary>
 
-    [ ] I would've liked this to follow a singleton pattern 😪
+[ ] I would've liked this to follow a singleton pattern 😪
 </details>
 
 ## [db_connection_config.yml](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/f71ba077ace2f3037083f65b6557000b0f5132d0/db_connection_config.yml)
@@ -46,22 +46,22 @@ Config file
 
 ## [ddl.sql](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/f71ba077ace2f3037083f65b6557000b0f5132d0/ddl.sql)
 <details>
-    <summary>        
-    DDL statements that initialize the sparkify database
-    </summary>
+<summary>        
+DDL statements that initialize the sparkify database
+</summary>
 
-    I've created this file and tested through a SQL console (DataGrip) before I placed the statements on [create_tables.py](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/f71ba077ace2f3037083f65b6557000b0f5132d0/create_tables.py)
+I've created this file and tested through a SQL console (DataGrip) before I placed the statements on [create_tables.py](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/f71ba077ace2f3037083f65b6557000b0f5132d0/create_tables.py)
 </details>
 
 ## [environment.yml](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/f71ba077ace2f3037083f65b6557000b0f5132d0/environment.yml)
 <details>
-    <summary>        
-    Environment config. Coontains the project dependencies for creating a conda environment
-    </summary>
+<summary>        
+Environment config. Coontains the project dependencies for creating a conda environment
+</summary>
 
-    * Needed to use python 3.8  as I couldn't make psycopg2 work with 3.9
-    * I used pyyaml, spend too much time troubleshooting why previously I'd been able to use `pip install yaml` and `conda install yaml` doesn't do the trick
-    * ipython-sql to be able to execute inline SQL at test.ipynb is not available from conda default channels. I discovered the [channel]::[package] syntax 😊
+* Needed to use python 3.8  as I couldn't make psycopg2 work with 3.9
+* I used pyyaml, spend too much time troubleshooting why previously I'd been able to use `pip install yaml` and `conda install yaml` doesn't do the trick
+* ipython-sql to be able to execute inline SQL at test.ipynb is not available from conda default channels. I discovered the [channel]::[package] syntax 😊
 </details>
 
 ## [etl.ipynb]()
