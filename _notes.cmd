@@ -24,6 +24,11 @@ C:\Users\josep\OneDrive\Documentos\projects\UdacityDeng\UDENG_L02P01\song-play-s
 rem /*********** using python from the env folder  **********/
 C:\Users\josep\OneDrive\Documentos\projects\UdacityDeng\UDENG_L02P01\song-play-schema-env\python
 
-rem /*********** running create tables  **********/
+rem /*********** run create tables  **********/
 C:\Users\josep\OneDrive\Documentos\projects\UdacityDeng\UDENG_L02P01\song-play-schema-env\python C:\Users\josep\OneDrive\Documentos\projects\UdacityDeng\UDENG_L02P01\create_tables.py
+python create_tables.py
+
+rem /*********** run etl  **********/
+C:\Users\josep\OneDrive\Documentos\projects\UdacityDeng\UDENG_L02P01\song-play-schema-env\python C:\Users\josep\OneDrive\Documentos\projects\UdacityDeng\UDENG_L02P01\etl.py
+python etl.py
 

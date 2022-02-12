@@ -15,14 +15,17 @@ drop table if exists time;
 create table songplays
 (
     songplay_id serial primary key,
-    start_time date,
+    start_time timestamp without time zone,
     user_id int,
     level varchar,
     song_id varchar,
+    song_title varchar,
     artist_id varchar,
+    artist_name varchar,
     session_id int,
     location varchar,
-    user_agent varchar
+    user_agent varchar,
+    stream_duration decimal
 );
 
 create table users

@@ -4,13 +4,17 @@ To understand what songs are users listening to we're using user activity logs a
 
 # How to Run
 The ETL uses conda environments with python 3.8. I'm using python 3.8 as I run into troubles when trying to use psycopg2 with python 3.9.
-* Activate the conda environment
+* Make sure conda environment is active
+
 * Run Create tables
+`python create_tables.py`
+
 * Run ETL.py
-* Run Test Notebook
-* Queries
-    * Songs that /..\
-    * ARtists that
+`python etl.py`
+
+* [Run Test Notebook](#test.ipynb)
+    
+
 
 # File list
 
@@ -88,7 +92,7 @@ Environment config. Coontains the project dependencies for creating a conda envi
     </summary>
 </details>
 
-## [test.ipynb]()
+## [test.ipynb](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/4d414b88750a1b1030e261d181b5326dd9dde214/test.ipynb)
 <details>
     <summary>        
     </summary>
@@ -96,7 +100,7 @@ Environment config. Coontains the project dependencies for creating a conda envi
 
 # Database Schema 
 * I wish I could've been able to have DataGrip build an ERD from my database. I was not succesful at doing this
-
+NEEED TO UPDATE ** SONGPLAYS SCHEMA
 [![DDL Scripts](https://user-images.githubusercontent.com/11904085/153713401-4fd27940-6dff-43b1-b069-cd8104ec799b.png)](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/f71ba077ace2f3037083f65b6557000b0f5132d0/ddl.sql)
 
 ## `songplays`

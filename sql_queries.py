@@ -11,15 +11,18 @@ time_table_drop = "drop table if exists time;"
 songplay_table_create = ("""
 create table songplays
 (
-    songplay_id int not null primary key,
-    start_time date,
+    songplay_id serial primary key,
+    start_time timestamp without time zone,
     user_id int,
     level varchar,
     song_id varchar,
+    song_title varchar,
     artist_id varchar,
+    artist_name varchar,
     session_id int,
     location varchar,
-    user_agent varchar
+    user_agent varchar,
+    stream_duration decimal
 );
 """)
 
@@ -77,19 +80,25 @@ insert into songplays
 user_id,
 level,
 song_id,
+song_title,
 artist_id,
+artist_name,
 session_id,
 location,
-user_agent)
+user_agent,
+stream_duration)
 values
 (%(start_time)s,
 %(user_id)s,
 %(level)s,
 %(song_id)s,
+%(song_title)s,
 %(artist_id)s,
+%(artist_name)s,
 %(session_id)s,
 %(location)s,
-%(user_agent)s)
+%(user_agent)s,
+%(stream_duration)s)
 """)
 
 user_table_insert = ("""
