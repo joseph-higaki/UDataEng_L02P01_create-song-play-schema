@@ -4,7 +4,7 @@ To understand what songs are users listening to we're using user activity logs a
 
 # How to Run
 The ETL uses conda environments with python 3.8. I'm using python 3.8 as I run into troubles when trying to use psycopg2 with python 3.9.
-* Make sure conda environment is active
+* Make sure [conda environment is active](#_notescmd)
 
 * Run Create tables
     
@@ -14,15 +14,12 @@ The ETL uses conda environments with python 3.8. I'm using python 3.8 as I run i
     
     `python etl.py`
 
-* [Run Test Notebook](#test.ipynb)
+* [Run Test Notebook](#testipynb)
     
-
-
 # File list
 
-
 ## [_notes.cmd](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/main/_notes.cmd)
-    Contains command line snippets, most of them to manage the conda environment
+Contains command line snippets, most of them to manage the conda environment
 
 - [ ] conda env commands to be relative path
 - [ ] conda env to automatically execute when.... 
@@ -38,8 +35,7 @@ Python code to execute DDL statements that initialize the sparkify database
 ## [db_connection_config.py](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/main/db_connection_config.py)
 Helper class that provides a PostgreSQL connection string from a config file 
 
-[ ] I would've liked this to follow a singleton pattern 😪
-
+- [ ] I would've liked this to follow a singleton pattern 😪
 
 ## [db_connection_config.yml](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/main/db_connection_config.yml)
 Config file 
@@ -47,7 +43,7 @@ Config file
 ## [ddl.sql](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/main/ddl.sql)
 DDL statements that initialize the sparkify database
 
-I've created this file and tested through a SQL console (DataGrip) before I placed the statements on [create_tables.py](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/main/create_tables.py)
+I've created this file to get me going at the beggining, through a SQL console (DataGrip) before I placed the statements on [create_tables.py](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/main/create_tables.py)
 
 
 ## [environment.yml](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/main/environment.yml)
@@ -64,7 +60,7 @@ Notebook for testing each process
 ETL processing metadata and events into the songplays datamart
 
 ## [sparkifydb queries.sql](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/main/sparkifydb%20queries.sql)
-Scrapbook for queries that are being executed on a PostgreSQL console
+Scrapbook for queries that are being executed on a PostgreSQL console (DataGrip)
 
 ## [sql_queries.py](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/main/sql_queries.py)
 SQL statements for the ETL
@@ -75,20 +71,20 @@ Notebook querying the data inserted by the ETL
 # Database Schema 
 * I wish I could've been able to have DataGrip build an ERD from my database. I was not succesful at doing this
 
-## `songplays`
+## Fact Table `songplays`
 * PK `songplay_id` has an autoincrement int column 
 * Since we're working over a sample of the [million songs dataset](http://millionsongdataset.com/) most of the songs referenced at the stream event log are not at the song/artist metadata files. 
 I included he song title and artist name in the songplays facttable
 * Length at the event table is being interpreted as stream duration of the song. This would allow us to differenciate the length of the song according to the metadata vs how much odf the song was streamed. We could later answer questions like: how often this song is skipped or streamed partially.
 ![image](https://user-images.githubusercontent.com/11904085/153720167-477fd2ba-0d26-4d2f-97d5-65374bf091eb.png)
 
-## `users, songs, artists`
+## Dimension Tables `users, songs, artists`
 They use a PK from the source system, which will force us to follow a SCD Type 1 for these dimensions. 
 No history, just overwrite on changes. 
 I believe it is ok for the current scope of the problem.
 ![image](https://user-images.githubusercontent.com/11904085/153720185-7be954fa-4cc2-434e-abb1-e8479c4d8518.png)
 
-## `time` 
+## Dimension Table `time` 
 Calendar dimension to be able to query/aggregate easily blocks of time.
 ![image](https://user-images.githubusercontent.com/11904085/153720199-d36ca5fc-41c4-4b4e-a2b8-d16459058d7b.png)
 
