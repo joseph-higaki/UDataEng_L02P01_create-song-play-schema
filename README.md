@@ -7,10 +7,12 @@ The ETL uses conda environments with python 3.8. I'm using python 3.8 as I run i
 * Make sure conda environment is active
 
 * Run Create tables
-`python create_tables.py`
+    
+    `python create_tables.py`
 
 * Run ETL.py
-`python etl.py`
+    
+    `python etl.py`
 
 * [Run Test Notebook](#test.ipynb)
     
@@ -69,47 +71,40 @@ Environment config. Coontains the project dependencies for creating a conda envi
 </details>
 
 ## [etl.ipynb]()
-<details>
-    <summary>        
-    </summary>
-</details>
+Notebook for testing each process
 
 ## [etl.py]()
-<details>
-    <summary>        
-    </summary>
-</details>
+ETL processing metadata and events into the songplays datamart
 
 ## [sparkifydb queries.sql]()
-<details>
-    <summary>        
-    </summary>
-</details>
+Scrapbook for queries that are being executed on a PostgreSQL console
 
 ## [sql_queries.py]()
-<details>
-    <summary>        
-    </summary>
-</details>
+SQL statements for the ETL
 
 ## [test.ipynb](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/4d414b88750a1b1030e261d181b5326dd9dde214/test.ipynb)
-<details>
-    <summary>        
-    </summary>
-</details>
+Notebook querying the data inserted by the ETL
+
 
 # Database Schema 
 * I wish I could've been able to have DataGrip build an ERD from my database. I was not succesful at doing this
-NEEED TO UPDATE ** SONGPLAYS SCHEMA
-[![DDL Scripts](https://user-images.githubusercontent.com/11904085/153713401-4fd27940-6dff-43b1-b069-cd8104ec799b.png)](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/f71ba077ace2f3037083f65b6557000b0f5132d0/ddl.sql)
 
 ## `songplays`
-PK `songplay_id` has an autoincrement int column 
+* PK `songplay_id` has an autoincrement int column 
+* Since we're working over a sample of the [million songs dataset](http://millionsongdataset.com/) most of the songs referenced at the stream event log are not at the song/artist metadata files. 
+I included he song title and artist name in the songplays facttable
+* Length at the event table is being interpreted as stream duration of the song. This would allow us to differenciate the length of the song according to the metadata vs how much odf the song was streamed. We could later answer questions like: how often this song is skipped or streamed partially.
+![image](https://user-images.githubusercontent.com/11904085/153720167-477fd2ba-0d26-4d2f-97d5-65374bf091eb.png)
 
 ## `users, songs, artists`
 They use a PK from the source system, which will force us to follow a SCD Type 1 for these dimensions. 
 No history, just overwrite on changes. 
 I believe it is ok for the current scope of the problem.
+![image](https://user-images.githubusercontent.com/11904085/153720185-7be954fa-4cc2-434e-abb1-e8479c4d8518.png)
 
 ## `time` 
 Calendar dimension to be able to query/aggregate easily blocks of time.
+![image](https://user-images.githubusercontent.com/11904085/153720199-d36ca5fc-41c4-4b4e-a2b8-d16459058d7b.png)
+
+# Analytical Queries
+Some of the questions we can now answer with our star schema model are included as examples within the [test.ipynb](https://github.com/joseph-higaki/UDataEng_L02P01_create-song-play-schema/blob/4d414b88750a1b1030e261d181b5326dd9dde214/test.ipynb) 
