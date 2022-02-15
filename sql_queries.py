@@ -12,17 +12,17 @@ songplay_table_create = ("""
 create table songplays
 (
     songplay_id serial primary key,
-    start_time timestamp without time zone,
-    user_id int,
-    level varchar,
+    start_time timestamp without time zone not null,
+    user_id int not null,
+    level varchar not null,
     song_id varchar,
-    song_title varchar,
+    song_title varchar not null,
     artist_id varchar,
-    artist_name varchar,
-    session_id int,
-    location varchar,
-    user_agent varchar,
-    stream_duration decimal
+    artist_name varchar not null,
+    session_id int  not null,
+    location varchar not null,
+    user_agent varchar  not null,
+    stream_duration decimal 
 );
 """)
 
@@ -30,10 +30,10 @@ user_table_create = ("""
 create table users
 (
     user_id int not null primary key,
-    first_name varchar,
-    last_name varchar,
-    gender varchar,
-    level varchar
+    first_name varchar not null,
+    last_name varchar not null,
+    gender varchar not null,
+    level varchar not null
 );
 """)
 
@@ -41,10 +41,10 @@ song_table_create = ("""
 create table songs
 (
     song_id varchar not null primary key,
-    title varchar,
-    artist_id varchar,
-    year int,
-    duration decimal
+    title varchar not null,
+    artist_id varchar not null,
+    year int not null,
+    duration decimal not null
 );
 """)
 
@@ -52,10 +52,10 @@ artist_table_create = ("""
 create table artists
 (
     artist_id varchar not null primary key,
-    name varchar,
-    location varchar,
-    latitude decimal,
-    longitude decimal
+    name varchar not null,
+    location varchar not null,
+    latitude decimal not null,
+    longitude decimal not null
 );
 """)
 
@@ -63,12 +63,12 @@ time_table_create = ("""
 create table time
 (
   start_time timestamp without time zone not null primary key,
-  hour int,
-  day int,
-  week int,
-  month int,
-  year int,
-  weekday bool
+  hour int not null,
+  day int not null,
+  week int not null,
+  month int not null,
+  year int not null,
+  weekday bool not null
 );
 """)
 
